@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    return "Img2Array v9"
+    return "Img2Array v10"
 
 @app.route('/img', methods=['POST'])
 def img():

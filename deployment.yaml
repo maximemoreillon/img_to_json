@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: img2json-deployment
 spec:
-  replicas: 10
+  replicas: 3
   selector:
     matchLabels:
       app: img2json-deployment
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: img2json
-        image: 192.168.179.25:5000/img2json:9
+        image: 192.168.179.25:5000/img2json:10
         imagePullPolicy: Always
         ports:
         - containerPort: 5002
