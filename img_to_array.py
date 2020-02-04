@@ -6,24 +6,28 @@ import codecs, json
 
 app = Flask(__name__)
 
-@app.route('/img', methods=['POST'])
-def login():
 
+@app.route('/', methods=['GET'])
+def index():
+    return "Img2Array"
+
+@app.route('/img', methods=['POST'])
+def img():
+    print('Received POST on /img')
+
+    # Extract path from request
     path = request.json['path']
 
+    # Normalization of input
     img_numpy = cv2.imread(path)/255
 
-
-
+    # prepare payload
     payload = json.dumps( {'instances': [img_numpy.tolist()]} )
-    #print(payload)
 
+    # Send request
+    r = requests.post("http://192.168.179.25:30111/v1/models/redblack:predict", data=payload)
 
-
-    r = requests.post("http://localhost:8501/v1/models/redblack:predict", data=payload)
-    print(r.text)
-
-    return 'Hello, World!'
+    return r.text
 
 
 app.run('0.0.0.0',5002)
