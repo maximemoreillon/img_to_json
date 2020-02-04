@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5002
 
 # Run app
-CMD [ "python", "img_to_array.py" ]
+CMD [ "python", "img2json.py" ]
