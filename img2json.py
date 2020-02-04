@@ -2,7 +2,7 @@ from flask import Flask, escape, request, jsonify
 import requests
 import cv2
 import numpy as np
-import codecs, json
+import json
 
 PORT = 5002
 app = Flask(__name__)
@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    return "Img2Array"
+    return "Img2Array v5"
 
 @app.route('/img', methods=['POST'])
 def img():
@@ -26,8 +26,9 @@ def img():
     payload = json.dumps( {'instances': [img_numpy.tolist()]} )
 
     # Send request
-    r = requests.post("http://192.168.179.25:30111/v1/models/redblack:predict", data=payload)
+    return "banana"
+    # r = requests.post("http://192.168.179.25:30111/v1/models/redblack:predict", data=payload)
 
-    return r.text
+    # return r.text
 
 app.run('0.0.0.0',PORT)
