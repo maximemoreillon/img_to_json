@@ -4,6 +4,7 @@ import cv2
 import numpy as np
 import codecs, json
 
+PORT = 5002
 app = Flask(__name__)
 
 
@@ -29,5 +30,4 @@ def img():
 
     return r.text
 
-
-app.run('0.0.0.0',5002)
+app.run('0.0.0.0',PORT)

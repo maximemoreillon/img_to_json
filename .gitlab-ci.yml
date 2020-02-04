@@ -1,0 +1,19 @@
+stages:
+  - containerization
+  - deployment
+
+variables:
+  DOCKER_IMAGE: 192.168.179.25:5000/img2json:1
+
+containerization:
+  stage: containerization
+  script:
+    - docker build -t $DOCKER_IMAGE .
+    - docker push $DOCKER_IMAGE
+
+deployment:
+  stage: deployment
+  script:
+    - kubectl apply -f deployment.yaml
+  environment:
+    name: staging
