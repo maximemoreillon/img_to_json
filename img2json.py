@@ -34,7 +34,7 @@ def img():
         payload = json.dumps( {'instances': [image_numpy.tolist()]} )
 
         # Send request
-        r = requests.post("http://192.168.179.25:30111/v1/models/redblack:predict", data=payload)
+        r = requests.post("http://172.16.98.151:30111/v1/models/redblack:predict", data=payload)
 
         return r.text
 
