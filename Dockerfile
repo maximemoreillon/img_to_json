@@ -8,9 +8,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install packages
-RUN export http_proxy=http://172.16.98.151:8118
-RUN export https_proxy=http://172.16.98.151:8118
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --proxy=http://172.16.98.151:8118
 
 # Expose port
 EXPOSE 5002
