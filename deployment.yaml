@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: img2json-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: img2json-deployment
