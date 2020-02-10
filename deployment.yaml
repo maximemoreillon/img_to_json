@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: img2json
-        image: 192.168.179.25:5000/img2json:10
+        image: 172.16.98.151:5000/img2json
         imagePullPolicy: Always
         ports:
         - containerPort: 5002

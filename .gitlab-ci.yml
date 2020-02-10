@@ -3,7 +3,8 @@ stages:
   - deployment
 
 variables:
-  DOCKER_IMAGE: 192.168.179.25:5000/img2json:10
+  DOCKER_IMAGE: 172.16.98.151:5000/img2json
+  DEPLOYMENT: img2json-deployment
 
 containerization:
   stage: containerization
@@ -15,5 +16,6 @@ deployment:
   stage: deployment
   script:
     - kubectl apply -f deployment.yaml
+    - kubectl rollout restart deployment/${DEPLOYMENT}
   environment:
     name: staging
